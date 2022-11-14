@@ -1,0 +1,75 @@
+[ca]
+default_ca = CA_default
+
+[ CA_default ]
+# # Directory and file locations.
+# dir               = ${CERT_DIR}
+# certs             = ${CERT_DIR}
+# crl_dir           = ${CERT_DIR}
+# new_certs_dir     = ${CERT_DIR}
+# database          = ${CADB}
+# serial            = ${CASRL}
+
+# # The root key and root certificate.
+# private_key       = ${CAKEY}
+# certificate       = ${CACERT}
+
+# SHA-1 is deprecated, so use SHA-2 instead.
+default_md        = sha256
+
+name_opt          = ca_default
+cert_opt          = ca_default
+default_days      = 30
+preserve          = no
+policy            = policy_loose
+
+[ policy_loose ]
+countryName             = optional
+stateOrProvinceName     = optional
+localityName            = optional
+organizationName        = optional
+organizationalUnitName  = optional
+commonName              = supplied
+emailAddress            = optional
+
+[req]
+nsComment = "Certificate"
+distinguished_name  = req_distinguished_name
+req_extensions = v3_req
+unique_subject = false
+
+[ req_distinguished_name ]
+
+countryName                     = Country Name (2 letter code)
+countryName_default             = GO
+countryName_min                 = 2
+countryName_max                 = 2
+
+stateOrProvinceName             = State or Province Name (full name)
+stateOrProvinceName_default     = GoatsLand
+
+localityName                    = Locality Name (eg, city)
+localityName_default            = GoatVille
+
+0.organizationName              = Organization Name (eg, company)
+0.organizationName_default      = Goat Dot Net
+
+organizationalUnitName          = Organizational Unit Name (eg, section)
+organizationalUnitName_default =  GoatNS
+
+commonName                      = Common Name (eg, your name or your server\'s hostname)
+commonName_max                  = 255
+commonName_default              = localhost
+
+[ v3_req ]
+basicConstraints = CA:FALSE
+nsCertType = server
+nsComment = "Server Certificate"
+subjectKeyIdentifier = hash
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = localhost
+IP.1 = 127.0.0.1
