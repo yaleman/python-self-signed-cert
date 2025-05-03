@@ -2,3 +2,16 @@ twistd.log
 request.csr
 cert.key
 cert.pem
+
+.vscode/
+.DS_Store
+config.py
+dist/
+.env
+.envrc
+*.asc
+build/
+*.pyc
+*.egg-info/
+**/__pycache__/*
+.venv

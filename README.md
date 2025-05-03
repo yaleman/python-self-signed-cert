@@ -2,7 +2,6 @@
 
 Using this:
 
-```
-poetry install
+```shell
 ./run_test.sh
 ```

@@ -57,7 +57,7 @@ localityName_default            = GoatVille
 organizationalUnitName          = Organizational Unit Name (eg, section)
 organizationalUnitName_default =  GoatNS
 
-commonName                      = Common Name (eg, your name or your server\'s hostname)
+commonName                      = Common Name (eg, your name or hostname)
 commonName_max                  = 255
 commonName_default              = localhost
 
